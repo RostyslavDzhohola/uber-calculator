@@ -4,6 +4,7 @@ import styles from './page.module.css'
 import Link from 'next/link'
 import Head from 'next/head'
 import Calculator from './calculator/calculator'
+import { RouteHandlerManager } from 'next/dist/server/future/route-handler-managers/route-handler-manager'
 
 const inter = Inter({ subsets: ['latin'] })
 // TODO: Add a new page and place it in the correct folder
@@ -28,6 +29,7 @@ export default function Home() {
             </ul>
           </nav>
         </header>
+        
         <div className={styles.description}>
           <p>
             Get started by editing&nbsp;
