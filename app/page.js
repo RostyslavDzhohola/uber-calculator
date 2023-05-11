@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import styles from './page.module.css'
 import Link from 'next/link'
 import Head from 'next/head'
-import Calculator from './calculator/calculator'
+import Calculator from './calculator'
 import { RouteHandlerManager } from 'next/dist/server/future/route-handler-managers/route-handler-manager'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -24,7 +24,7 @@ export default function Home() {
                 <Link href="/">Home</Link>
               </li>
               <li className="hover:text-blue-600 hover:scale-110 text-black">
-                <Link href="/calculator/calculator">Calculator</Link>
+                <Link href="/calculator">Calculator</Link>
               </li>
             </ul>
           </nav>
