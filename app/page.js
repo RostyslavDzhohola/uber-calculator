@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import styles from './page.module.css'
 import Link from 'next/link'
 import Head from 'next/head'
-import Calculator from './calculator'
+import Calculator from './dashboard/calculator'
 import { RouteHandlerManager } from 'next/dist/server/future/route-handler-managers/route-handler-manager'
 
 const inter = Inter({ subsets: ['latin'] })

@@ -5,8 +5,14 @@ export default function Calculator({ children }) {
     <div>
       <h1 className="text-5xl">Calculator</h1>
       <h2 className="text-3xl"> Input</h2>
-      <div>Earnings input fields</div>
-      <input type="number" placeholder="$0" />
+      <div className="flex flex-col bg-white rounded-lg border-indigo-600 border">
+        <label htmlFor="earnings" className="ml-2">Earnings</label>
+        <div className="relative">
+          <span className="absolute left-2 top-1/2 transform -translate-y-1/2">$</span>
+          <input className="pl-5 rounded-lg" type="number" placeholder="0" name="Earnings"/>
+        </div>
+      </div>
+      
       <div> hours and minutes </div>
       <div> start and end date</div>
       <div> Togle for renting</div>
