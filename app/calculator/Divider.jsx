@@ -1,6 +1,6 @@
 export default function Divider({name}) {
   return (
-    <div className="relative">
+    <div className="relative mb-2">
       <div className="absolute inset-0 flex items-center" aria-hidden="true">
         <div className="w-full border-t border-gray-300" />
       </div>

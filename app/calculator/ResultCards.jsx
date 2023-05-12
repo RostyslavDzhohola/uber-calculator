@@ -1,8 +1,8 @@
 const stats = [
   { name: 'Hourly Earnings', stat: '$32 per hour ' },
-  { name: 'Working Time', stat: '58.16%' },
-  { name: 'Avg. Click Rate', stat: '24.57%' },
-  { name: 'Avg. Click Rate', stat: '24.57%' },
+  { name: 'Working Time', stat: '53 hr 2 m' },
+  { name: 'Net Income', stat: '$1500' },
+  { name: 'Total Expense', stat: '$600' },
 ]
 
 export default function ResultCards() {

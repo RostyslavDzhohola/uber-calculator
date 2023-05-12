@@ -18,21 +18,16 @@ export default function Calculator() {
       <DatesWorked />
       <RentTogle />
       <Divider name="Expanses"/>
-      <DollarInput name="Maintenance" />
-      <DollarInput name="Gas / Charging" />
-      <DollarInput name="Insurance" />
-      <DollarInput name="Tolls" />
-      <DollarInput name="Other" />
-      <Location />
-      <Car />
-      <Divider name="Result"/>
-      <div className="flex flex-wrap w-full">
-        <div> Hourly earnings</div>
-        <div> Working Time</div>
-        <div>Net income</div>
-        <div>Total expenses</div>
-        <div>Save button</div>
+      <div className="grid grid-cols-2">
+        <DollarInput name="Maintenance" />
+        <DollarInput name="Gas / Charging" />
+        <DollarInput name="Insurance" />
+        <DollarInput name="Tolls" />
+        <DollarInput name="Other" />
+        <Location />
+        <Car />
       </div>
+      <Divider name="Result"/>
       <ResultCards />
     </div>
   )
