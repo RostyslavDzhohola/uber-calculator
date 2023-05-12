@@ -5,6 +5,7 @@ import DatesWorked from "./DatesWorked"
 import RentTogle from "./RentTogle"
 import Location from "./Location"
 import Car from "./Car"
+import ResultCards from "./ResultCards"
 
 export default function Calculator() {
   return (
@@ -25,11 +26,14 @@ export default function Calculator() {
       <Location />
       <Car />
       <Divider name="Result"/>
-      <div> Hourly earnings</div>
-      <div> Working Time</div>
-      <div>Net income</div>
-      <div>Total expenses</div>
-      <div>Save button</div>
+      <div className="flex flex-wrap w-full">
+        <div> Hourly earnings</div>
+        <div> Working Time</div>
+        <div>Net income</div>
+        <div>Total expenses</div>
+        <div>Save button</div>
+      </div>
+      <ResultCards />
     </div>
   )
 }

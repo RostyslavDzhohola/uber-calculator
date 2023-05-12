@@ -15,6 +15,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1 className="text-5xl bg-indigo-400 p-3 rounded-2xl">Home page</h1>
+        <p className="">Welcome to the Uber Calculator.  follow to Calculator tab.</p>
 
       </main>
     </div>
