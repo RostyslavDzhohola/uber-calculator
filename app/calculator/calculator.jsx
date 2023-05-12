@@ -4,6 +4,7 @@ import Divider from "./Divider"
 import DatesWorked from "./DatesWorked"
 import RentTogle from "./RentTogle"
 import Location from "./Location"
+import Car from "./Car"
 
 export default function Calculator() {
   return (
@@ -22,8 +23,7 @@ export default function Calculator() {
       <DollarInput name="Tolls" />
       <DollarInput name="Other" />
       <Location />
-      <div> Drop down for Car</div>
-      <div> Divider line</div>
+      <Car />
       <Divider name="Result"/>
       <div> Hourly earnings</div>
       <div> Working Time</div>
