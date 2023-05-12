@@ -1,7 +1,8 @@
 import DollarInput from "./DollarInput"
 import TimeWorked from "./TimeWorked"
-import DividerResult from "./DividerResult"
+import Divider from "./Divider"
 import DatesWorked from "./DatesWorked"
+import RentTogle from "./RentTogle"
 
 export default function Calculator({ children }) {
   return (
@@ -12,8 +13,8 @@ export default function Calculator({ children }) {
       <DollarInput name="Earnings" />
       <TimeWorked />
       <DatesWorked />
-      <div> Togle for renting</div>
-      <h2 className="text-3xl my-2">Expanses</h2>
+      <RentTogle />
+      <Divider name="Expanses"/>
       <DollarInput name="Maintenance" />
       <DollarInput name="Gas / Charging" />
       <DollarInput name="Insurance" />
@@ -22,7 +23,7 @@ export default function Calculator({ children }) {
       <div> Drop down for Location</div>
       <div> Drop down for Car</div>
       <div> Divider line</div>
-      <DividerResult />
+      <Divider name="Result"/>
       <div> Hourly earnings</div>
       <div> Working Time</div>
       <div>Net income</div>
