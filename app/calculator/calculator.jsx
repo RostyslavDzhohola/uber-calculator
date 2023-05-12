@@ -4,7 +4,7 @@ import Divider from "./Divider"
 import DatesWorked from "./DatesWorked"
 import RentTogle from "./RentTogle"
 
-export default function Calculator({ children }) {
+export default function Calculator() {
   return (
     <div>
       <h1 className="text-5xl bg-indigo-400 p-3 rounded-2xl">Calculator</h1>
