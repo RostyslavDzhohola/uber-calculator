@@ -1,6 +1,7 @@
 import DollarInput from "./DollarInput"
 import TimeWorked from "./TimeWorked"
 import DividerResult from "./DividerResult"
+import DatesWorked from "./DatesWorked"
 
 export default function Calculator({ children }) {
   return (
@@ -10,7 +11,7 @@ export default function Calculator({ children }) {
 
       <DollarInput name="Earnings" />
       <TimeWorked />
-      <div> start and end date</div>
+      <DatesWorked />
       <div> Togle for renting</div>
       <h2 className="text-3xl my-2">Expanses</h2>
       <DollarInput name="Maintenance" />

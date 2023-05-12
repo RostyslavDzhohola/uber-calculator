@@ -1,7 +1,7 @@
 export default function DollarInput({name}) {
   return (
     <div className="my-1">
-      <div className="flex flex-col ">
+      <div className="flex flex-col">
         <label htmlFor={name} className="ml-1 font-bold text-lg">{name}</label>
         <div className="relative">
           <span className="absolute left-2 top-1/2 transform -translate-y-1/2">$</span>
