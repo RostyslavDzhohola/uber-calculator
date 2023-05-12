@@ -1,12 +1,12 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
-import Link from 'next/link'
-import Head from 'next/head'
-import Calculator from './calculator/calculator'
-import { RouteHandlerManager } from 'next/dist/server/future/route-handler-managers/route-handler-manager'
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import styles from "./page.module.css";
+import Link from "next/link";
+import Head from "next/head";
+import Calculator from "./calculator/Calculator";
+import { RouteHandlerManager } from "next/dist/server/future/route-handler-managers/route-handler-manager";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 // TODO: Add a new page and place it in the correct folder
 
 export default function Home() {
@@ -32,8 +32,7 @@ export default function Home() {
             </ul>
           </nav>
         </header> */}
-        
       </main>
     </div>
-  )
+  );
 }

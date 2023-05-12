@@ -1,11 +1,11 @@
 // `app/dashboard/page.js` is the UI for the `/dashboard` URL
-import Calculator from "./calculator";
+import Calculator from "./Calculator";
 import styles from "../page.module.css";
 
 export default function Page() {
   return (
     <div className={styles.main}>
-      <Calculator/>
+      <Calculator />
     </div>
   );
 }
