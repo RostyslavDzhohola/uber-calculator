@@ -1,4 +1,4 @@
-export default function DollarInpurt({name}) {
+export default function DollarInput({name}) {
   return (
     <div className="my-1">
       <div className="flex flex-col ">

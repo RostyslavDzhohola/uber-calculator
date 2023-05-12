@@ -1,4 +1,4 @@
-import DollarInpurt from "./DollarInpurt"
+import DollarInput from "./DollarInput"
 import TimeWorked from "./TimeWorked"
 import DividerResult from "./DividerResult"
 
@@ -8,16 +8,16 @@ export default function Calculator({ children }) {
       <h1 className="text-5xl bg-indigo-400 p-3 rounded-2xl">Calculator</h1>
       <h2 className="text-3xl my-2">Input fields</h2>
 
-      <DollarInpurt name="Earnings" />
+      <DollarInput name="Earnings" />
       <TimeWorked />
       <div> start and end date</div>
       <div> Togle for renting</div>
       <h2 className="text-3xl my-2">Expanses</h2>
-      <DollarInpurt name="Maintenance" />
-      <DollarInpurt name="Gas / Charging" />
-      <DollarInpurt name="Insurance" />
-      <DollarInpurt name="Tolls" />
-      <DollarInpurt name="Other" />
+      <DollarInput name="Maintenance" />
+      <DollarInput name="Gas / Charging" />
+      <DollarInput name="Insurance" />
+      <DollarInput name="Tolls" />
+      <DollarInput name="Other" />
       <div> Drop down for Location</div>
       <div> Drop down for Car</div>
       <div> Divider line</div>

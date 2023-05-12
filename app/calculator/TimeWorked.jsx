@@ -11,7 +11,7 @@ export default function TimeWorked() {
         <div className="flex flex-col ">
           <label htmlFor="minutesInput" className="ml-1 font-bold text-lg">Minutes</label>
           <div className="relative">
-            <input id="minutesInput" className="pl-2 rounded-lg border-indigo-600 border w-20" type="number" placeholder="0" min="0" max="69"/>
+            <input id="minutesInput" className="pl-2 rounded-lg border-indigo-600 border w-20" type="number" placeholder="0" min="0" max="59"/>
           </div>
         </div>
       </div>
