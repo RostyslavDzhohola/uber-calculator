@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import styles from './page.module.css'
 import Link from 'next/link'
 import Head from 'next/head'
-import Calculator from './dashboard/calculator'
+import Calculator from './calculator/calculator'
 import { RouteHandlerManager } from 'next/dist/server/future/route-handler-managers/route-handler-manager'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -17,7 +17,9 @@ export default function Home() {
         <meta name="description" content="Uber Calculator" />
       </Head>
       <main className={styles.main}>
-        <Calculator />
+        <h1 className="text-5xl bg-indigo-400 p-3 rounded-2xl">Home page</h1>
+        {/* <Calculator /> */}
+
         {/* <header className="bg-white shadow-md">
           <nav className="container mx-auto px-4 py-2">
             <ul className="flex space-x-4 text-5xl">

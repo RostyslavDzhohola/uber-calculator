@@ -3,8 +3,8 @@ export default function Calculator({ children }) {
   return (
     // TODO: Add fields for inputing data
     <div>
-      <h1 className="text-5xl">Calculator</h1>
-      <h2 className="text-3xl"> Input</h2>
+      <h1 className="text-5xl bg-indigo-400 p-3 rounded-2xl">Calculator</h1>
+      <h2 className="text-3xl my-2"> Input fields</h2>
       <div className="flex flex-col bg-white rounded-lg border-indigo-600 border">
         <label htmlFor="earnings" className="ml-2">Earnings</label>
         <div className="relative">
