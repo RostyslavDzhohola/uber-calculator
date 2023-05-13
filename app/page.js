@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "./page.module.css";
 import Head from "next/head";
+import SignUp from "./SignUp";
 
 const inter = Inter({ subsets: ["latin"] });
 // TODO: Add a new page and place it in the correct folder
@@ -15,8 +16,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1 className="text-5xl bg-indigo-400 p-3 rounded-2xl">Home page</h1>
-        <p className="">Welcome to the Uber Calculator.  follow to Calculator tab.</p>
-
+        <SignUp />
       </main>
     </div>
   );
