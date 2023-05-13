@@ -1,5 +1,31 @@
+'use client';
+import axios from 'axios';
+import { useState } from 'react';
 
 export default function SignUp() {
+  const [email, setEmail] = useState('');
+
+  // TODO: add API key
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevents default refresh by the browser
+
+    try {
+      await axios.post('https://api.mailerlite.com/api/v2/groups/{groupID}/subscribers', {
+        email: email,
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-MailerLite-ApiKey': 'YOUR_MAILERLITE_API_KEY',
+        },
+      });
+
+      setEmail('');
+      alert('You have successfully subscribed!');
+    } catch (error) {
+      console.error('Failed to subscribe the user', error);
+    }
+  };
+
   return (
     <div className=" py-16 sm:py-24">
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -7,7 +33,7 @@ export default function SignUp() {
           <h2 className="max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl xl:max-w-none xl:flex-auto">
             Get notified when we're launching.
           </h2>
-          <form className="w-full max-w-md">
+          <form className="w-full max-w-md" onSubmit={handleSubmit}>
             <div className="flex gap-x-4">
               <label htmlFor="email-address" className="sr-only">
                 Email address
@@ -20,8 +46,9 @@ export default function SignUp() {
                 required
                 className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
-              {/* TODO: I will need to add functionality for submition and API handling  */}
               <button
                 type="submit"
                 className="flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
