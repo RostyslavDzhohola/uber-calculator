@@ -18,8 +18,8 @@ export default function RootLayout({ children }) {
         </nav>
         <div>
           {children}
-          <Analytics />
         </div>
+        <Analytics />
       </body>
     </html>
   )
