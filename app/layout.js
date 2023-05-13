@@ -1,6 +1,7 @@
 import './globals.css'
 import Link from 'next/link'
 import styles from "./page.module.css";
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,8 +16,10 @@ export default function RootLayout({ children }) {
           <Link href="/" className='mx-2 text-2xl hover:scale-110 inline-block'>Home</Link>
           <Link href="/calculator" className='mx-2 text-2xl hover:scale-110 inline-block'>Calculator</Link>
         </nav>
-      
-        <div>{children}</div>
+        <div>
+          {children}
+          <Analytics />
+        </div>
       </body>
     </html>
   )
