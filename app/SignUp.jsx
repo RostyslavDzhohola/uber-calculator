@@ -10,12 +10,13 @@ export default function SignUp() {
     e.preventDefault(); // Prevents default refresh by the browser
 
     try {
-      await axios.post('https://api.mailerlite.com/api/v2/groups/{groupID}/subscribers', {
+      await axios.post('https://api.mailerlite.com/api/v2/groups/88175631753283556/subscribers', {
         email: email,
       }, {
         headers: {
           'Content-Type': 'application/json',
-          'X-MailerLite-ApiKey': 'YOUR_MAILERLITE_API_KEY',
+          'Accept': 'application/json',
+          'X-MailerLite-ApiKey': process.env.NEXT_PUBLIC_MAILERLITE_API_KEY,
         },
       });
 
@@ -35,7 +36,7 @@ export default function SignUp() {
           </h2>
           <form className="w-full max-w-md" onSubmit={handleSubmit}>
             <div className="flex gap-x-4">
-              <label htmlFor="email-address" className="sr-only">
+              <label htmlFor="email-address" className="block text-sm font-medium text-white">
                 Email address
               </label>
               <input
