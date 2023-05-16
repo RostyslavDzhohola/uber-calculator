@@ -1,19 +1,29 @@
 
 // import fetch from 'isomorphic-unfetch';
+import { NextRequest } from "next/server";
 
 
 export async function POST(req, res) {
-  req.body = await req.json();
-  console.log("req.body is ",req.body);
-  const { email } = req.body;
+  // res = await NextRequest(req, res); // optional, but useful for features like `previewMode` or `previewData`
+  // if (typeof res.status !== 'function') {
+  //   console.error('res is not an Express.js response object', res);
+  //   return;
+  // }
+
+  debugger; // this will stop the code from running and allow you to inspect the req object
+  const body = await req.json();
+  console.log("body is ",body);
+  const { email } = body;
 
   console.log("email is", { email });
   console.log("MAILCHIMP_AUDIENCE_ID",process.env.MAILCHIMP_AUDIENCE_ID );
   console.log("MAILCHIMP_API_KEY",process.env.MAILCHIMP_API_KEY );
 
+  
   if (!email) {
     console.log('Email is required');
-    return res.status(400).json({ error: 'Email is required' });
+    res.statusCode = 400;
+    return res.json({ error: 'Email is required' });
   }
 
   try {
@@ -39,16 +49,19 @@ export async function POST(req, res) {
     );
 
     if (response.status >= 400) {
-      return res.status(400).json({
+      res.statusCode = 400;
+      return res.json({
         error: `There was an error subscribing to the newsletter.
         Hit me up peter@peterlunch.com and I'll add you the old fashioned way :(.`,
       });
     }
 
     console.log('success')
-    return res.status(201).json({ error: '' });
+    res.statusCode = 201;
+    return res.json({ error: '' });
   } catch (error) {
     console.log(error.message || error.toString());
-    return res.status(500).json({ error: error.message || error.toString() });
+    res.statusCode = 500;
+    return res.json({ error: error.message || error.toString() });
   }
 };
