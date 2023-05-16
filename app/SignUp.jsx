@@ -5,15 +5,20 @@ import { useState } from 'react';
 export default function SignUp() {
   const [email, setEmail] = useState('');
 
-  // TODO: add API key
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevents default refresh by the browser
 
     try {
-      await axios.post('/api/subscribe', { email: email});
+      const response = await axios.post('/api/subscribeUser', { email });
+      console.log('response is', response);
 
-      setEmail('');
-      alert('You have successfully subscribed!');
+      if (response.status === 200) {
+        setEmail('');
+        alert('You have successfully subscribed!');
+      } else {
+        console.error('Failed to subscribe the user', response);
+        // Handle the error case here
+      }
     } catch (error) {
       console.error('Failed to subscribe the user', error);
     }

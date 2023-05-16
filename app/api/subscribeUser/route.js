@@ -3,14 +3,14 @@
 import { NextRequest } from "next/server";
 
 
-export async function POST(req, res) {
+export async function POST(req) {
   // res = await NextRequest(req, res); // optional, but useful for features like `previewMode` or `previewData`
   // if (typeof res.status !== 'function') {
   //   console.error('res is not an Express.js response object', res);
   //   return;
   // }
 
-  debugger; // this will stop the code from running and allow you to inspect the req object
+  // debugger; // this will stop the code from running and allow you to inspect the req object
   const body = await req.json();
   console.log("body is ",body);
   const { email } = body;
@@ -58,10 +58,10 @@ export async function POST(req, res) {
 
     console.log('success')
     res.statusCode = 201;
-    return res.json({ error: '' });
+    return res.send({ error: '' });
   } catch (error) {
     console.log(error.message || error.toString());
     res.statusCode = 500;
-    return res.json({ error: error.message || error.toString() });
+    return res.send({ error: error.message || error.toString() });
   }
 };
