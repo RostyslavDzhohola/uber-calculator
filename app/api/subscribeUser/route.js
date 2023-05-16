@@ -3,7 +3,7 @@
 import { NextRequest } from "next/server";
 
 
-export async function POST(req) {
+export async function POST(req, res) {
   // res = await NextRequest(req, res); // optional, but useful for features like `previewMode` or `previewData`
   // if (typeof res.status !== 'function') {
   //   console.error('res is not an Express.js response object', res);
