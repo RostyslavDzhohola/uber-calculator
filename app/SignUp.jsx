@@ -17,10 +17,12 @@ export default function SignUp() {
         alert('You have successfully subscribed!');
       } else {
         console.error('Failed to subscribe the user', response);
+        console.log('Custom error message', error.response.data.error);
         // Handle the error case here
       }
     } catch (error) {
       console.error('Failed to subscribe the user', error);
+      console.log('Custom error message', error.response.data.error);
     }
   };
 

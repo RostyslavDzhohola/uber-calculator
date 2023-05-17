@@ -1,6 +1,8 @@
 
 // import fetch from 'isomorphic-unfetch';
 import { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+
 
 
 export async function POST(req, res) {
@@ -17,7 +19,7 @@ export async function POST(req, res) {
 
   console.log("email is", { email });
   console.log("MAILCHIMP_AUDIENCE_ID",process.env.MAILCHIMP_AUDIENCE_ID );
-  console.log("MAILCHIMP_API_KEY",process.env.MAILCHIMP_API_KEY );
+  // console.log("MAILCHIMP_API_KEY",process.env.MAILCHIMP_API_KEY );
 
   
   if (!email) {
@@ -49,19 +51,22 @@ export async function POST(req, res) {
     );
 
     if (response.status >= 400) {
-      res.statusCode = 400;
-      return res.json({
-        error: `There was an error subscribing to the newsletter.
-        Hit me up peter@peterlunch.com and I'll add you the old fashioned way :(.`,
-      });
+      return new NextResponse(
+        JSON.stringify({
+          error: `There was an error subscribing to the newsletter. 
+          Hit me up peter@peterlunch.com and I'll add you the old fashioned way :(.`,
+        }), 
+        { status: 400 }
+      );
     }
 
     console.log('success')
-    res.statusCode = 201;
-    return res.send({ error: '' });
-  } catch (error) {
+    return new NextResponse(JSON.stringify({ error: '', data: 'Some success message' }, { status: 201 }));
+  } catch ( error ) {
     console.log(error.message || error.toString());
-    res.statusCode = 500;
-    return res.send({ error: error.message || error.toString() });
+    return new NextResponse(
+      JSON.stringify({ error: error.message || error.toString() }),
+      { status: 500 }
+    );
   }
 };
