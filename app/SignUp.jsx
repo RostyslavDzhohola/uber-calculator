@@ -1,3 +1,4 @@
+// This is client
 'use client';
 import axios from 'axios';
 import { useState } from 'react';
@@ -10,26 +11,34 @@ export default function SignUp() {
     e.preventDefault(); // Prevents default refresh by the browser
 
     try {
-      const response = await axios.post('/api/subscribeUser', { email });
-    
-      if (response.status === 400) {
-        console.log('Response ', response);
-        console.log('Response.data ', response.data);
-        console.log('Response.data.error ', response.data.error);
-        alert(response.data.error);
-      } else if (response.status >= 200 && response.status < 300) {
-        setEmail('');
-        alert('You have successfully subscribed!');
-        console.log('Status code:', response.status);
-      } else {
-        console.error('Failed to subscribe the user', response);
-        console.log('Custom error message: ', error.response.data.error);
-        // Handle the error case here
+      const response = await axios.post(
+        '/api/subscribeUser', 
+        { email },
+        { validateStatus: function (status) {
+            return status >= 200 && status < 500; // default
+          }
+        }
+      );
+      console.log('Response ', response);
+      console.log('Response.data ', response.data);
+
+        if (response.status === 200) {
+          setEmail('');
+          alert('You have successfully subscribed!');
+          console.log('Status code:', response.status);
+        } else if (response.status === 400){
+          console.log('Subscriber already exists');
+          alert(email + ' has been already added to the subsribe list.');
+        } else {
+          console.log('Response ', response);
+          console.log('Response.data ', response.data);
+          alert('Failed to subscribe: ' + response.data.message);
+          // Handle the error case here
+        }
+      } catch (error) {
+        console.error('Failed to subscribe the user', error);
+        alert('Failed to subscribe: ' + response.data.message);
       }
-    } catch (error) {
-      console.error('Failed to subscribe the user', error);
-      console.log('Custom error message', error.response.data.error);
-    }
     
   };
 

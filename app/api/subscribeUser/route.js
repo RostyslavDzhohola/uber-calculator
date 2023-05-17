@@ -1,31 +1,22 @@
-
-// import fetch from 'isomorphic-unfetch';
-import { NextRequest } from "next/server";
+// This is server
 import { NextResponse } from "next/server";
 
-
-
-export async function POST(req, res) {
-  // res = await NextRequest(req, res); // optional, but useful for features like `previewMode` or `previewData`
-  // if (typeof res.status !== 'function') {
-  //   console.error('res is not an Express.js response object', res);
-  //   return;
-  // }
-
-  // debugger; // this will stop the code from running and allow you to inspect the req object
+export async function POST(req) {
   const body = await req.json();
-  console.log("body is ",body);
+  console.log("route.js body is ", body);
   const { email } = body;
 
-  console.log("email is", { email });
-  console.log("MAILCHIMP_AUDIENCE_ID",process.env.MAILCHIMP_AUDIENCE_ID );
+  console.log("route.js email is ", { email });
+  // console.log("MAILCHIMP_AUDIENCE_ID route.js",process.env.MAILCHIMP_AUDIENCE_ID );
   // console.log("MAILCHIMP_API_KEY",process.env.MAILCHIMP_API_KEY );
 
   
   if (!email) {
-    console.log('Email is required');
-    res.statusCode = 400;
-    return res.json({ error: 'Email is required' });
+    console.log('Email is required route.js');
+    return new NextResponse(
+      JSON.stringify({ error: 'Email is required' }),
+      { status: 400 } 
+    );
   }
 
   try {
@@ -49,16 +40,27 @@ export async function POST(req, res) {
         method: 'POST',
       }
     );
+    
+    debugger;
+
+    if(response.status === 200){
+      return new NextResponse(
+        JSON.stringify({ message: 'Email subscription successful' }),
+        { status: 200 }
+      );
+    }
+    
 
     if(response.status === 400){
-      const responseBody = await response.json();
-      console.log("Response.detail ", responseBody.detail);
+      console.log('response.status === 400 route.js');
+      const data = await response.json();
       return new NextResponse(
         JSON.stringify({
-          error: responseBody.detail
+          message: data.detail,
         }),
         { status: 400 }
-      )};
+      )
+    };
     
 
     if (response.status > 400) {
@@ -67,16 +69,22 @@ export async function POST(req, res) {
           error: `There was an error subscribing to the newsletter. 
           Hit me up peter@peterlunch.com and I'll add you the old fashioned way :(.`,
         }), 
-        { status: 400 }
+        { status: 500 }
       );
     }
-
-    console.log('success')
-    return new NextResponse(JSON.stringify({ error: '', data: 'Some success message' }, { status: 200 }));
+   
+    console.log('success route.js');
+    return new NextResponse(JSON.stringify(
+      { 
+        message: 'success message',
+      }), { status: 200 });
   } catch ( error ) {
-    console.log(error.message || error.toString());
+    console.log("route.js error.message || error.toString()", error.message || error.toString());
+
     return new NextResponse(
-      JSON.stringify({ error: error.message || error.toString() }),
+      JSON.stringify({ 
+        error: 'Failed to subscribe the user',
+      }),
       { status: 500 }
     );
   }
