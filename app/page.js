@@ -12,8 +12,8 @@ export default function Home() {
     <div>
       <main className={styles.main}>
         <h1 className="text-5xl bg-indigo-400 p-3 rounded-2xl">Home page</h1>
-        {/* <SignUp /> */}
-        <MailchimpForm />
+        <SignUp />
+        {/* <MailchimpForm /> */}
       </main>
     </div>
   );

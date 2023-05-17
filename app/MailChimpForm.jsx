@@ -6,7 +6,6 @@ export default function MailChimpForm() {
   const inputRef = useRef(null);
 
   const subscribeUser = async (e) => {
-    
     e.preventDefault();
 
     // this is where your mailchimp request is made
@@ -20,6 +19,7 @@ export default function MailChimpForm() {
       console.error("error while subscribing user", error);
     }
   };
+  
 
   //   const res = await fetch('/api/subscribeUser', {
   //     body: JSON.stringify({

@@ -6,24 +6,31 @@ export default function SignUp() {
   const [email, setEmail] = useState('');
 
   const handleSubmit = async (e) => {
+    console.log('handleSubmit invoked');
     e.preventDefault(); // Prevents default refresh by the browser
 
     try {
       const response = await axios.post('/api/subscribeUser', { email });
-      console.log('response is', response);
-
-      if (response.status === 200) {
+    
+      if (response.status === 400) {
+        console.log('Response ', response);
+        console.log('Response.data ', response.data);
+        console.log('Response.data.error ', response.data.error);
+        alert(response.data.error);
+      } else if (response.status >= 200 && response.status < 300) {
         setEmail('');
         alert('You have successfully subscribed!');
+        console.log('Status code:', response.status);
       } else {
         console.error('Failed to subscribe the user', response);
-        console.log('Custom error message', error.response.data.error);
+        console.log('Custom error message: ', error.response.data.error);
         // Handle the error case here
       }
     } catch (error) {
       console.error('Failed to subscribe the user', error);
       console.log('Custom error message', error.response.data.error);
     }
+    
   };
 
   return (
@@ -35,7 +42,7 @@ export default function SignUp() {
           </h2>
           <form className="w-full max-w-md" onSubmit={handleSubmit}>
             <div className="flex gap-x-4">
-            // TODO: solve hydration issue
+            {/* // TODO: solve hydration issue */}
               {/* <label htmlFor="email-address" className="block text-sm font-medium text-white">
                 Email address
               </label> */}

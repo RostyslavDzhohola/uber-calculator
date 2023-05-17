@@ -50,7 +50,18 @@ export async function POST(req, res) {
       }
     );
 
-    if (response.status >= 400) {
+    if(response.status === 400){
+      const responseBody = await response.json();
+      console.log("Response.detail ", responseBody.detail);
+      return new NextResponse(
+        JSON.stringify({
+          error: responseBody.detail
+        }),
+        { status: 400 }
+      )};
+    
+
+    if (response.status > 400) {
       return new NextResponse(
         JSON.stringify({
           error: `There was an error subscribing to the newsletter. 
@@ -61,7 +72,7 @@ export async function POST(req, res) {
     }
 
     console.log('success')
-    return new NextResponse(JSON.stringify({ error: '', data: 'Some success message' }, { status: 201 }));
+    return new NextResponse(JSON.stringify({ error: '', data: 'Some success message' }, { status: 200 }));
   } catch ( error ) {
     console.log(error.message || error.toString());
     return new NextResponse(
