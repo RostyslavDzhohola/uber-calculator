@@ -52,9 +52,9 @@ export default function SignUp() {
           <form className="w-full max-w-md" onSubmit={handleSubmit}>
             <div className="flex gap-x-4">
             {/* // TODO: solve hydration issue */}
-              {/* <label htmlFor="email-address" className="block text-sm font-medium text-white">
+              <label htmlFor="email-address" className="block text-sm font-medium text-white">
                 Email address
-              </label> */}
+              </label>
               <input
                 id="email-address"
                 name="email"

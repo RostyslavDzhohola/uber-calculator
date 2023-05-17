@@ -3,13 +3,8 @@ import { NextResponse } from "next/server";
 
 export async function POST(req) {
   const body = await req.json();
-  console.log("route.js body is ", body);
   const { email } = body;
-
-  console.log("route.js email is ", { email });
   // console.log("MAILCHIMP_AUDIENCE_ID route.js",process.env.MAILCHIMP_AUDIENCE_ID );
-  // console.log("MAILCHIMP_API_KEY",process.env.MAILCHIMP_API_KEY );
-
   
   if (!email) {
     console.log('Email is required route.js');
@@ -40,8 +35,6 @@ export async function POST(req) {
         method: 'POST',
       }
     );
-    
-    debugger;
 
     if(response.status === 200){
       return new NextResponse(
@@ -49,10 +42,8 @@ export async function POST(req) {
         { status: 200 }
       );
     }
-    
 
     if(response.status === 400){
-      console.log('response.status === 400 route.js');
       const data = await response.json();
       return new NextResponse(
         JSON.stringify({
@@ -73,11 +64,6 @@ export async function POST(req) {
       );
     }
    
-    console.log('success route.js');
-    return new NextResponse(JSON.stringify(
-      { 
-        message: 'success message',
-      }), { status: 200 });
   } catch ( error ) {
     console.log("route.js error.message || error.toString()", error.message || error.toString());
 
