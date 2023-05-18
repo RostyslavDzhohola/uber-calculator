@@ -4,7 +4,7 @@ export default function Car() {
   return (
     <div className="my-1">
       <label htmlFor="location" className="ml-1 font-bold text-lg block leading-6 text-gray-900">
-        Location
+        Car
       </label>
       <select
         id="location"

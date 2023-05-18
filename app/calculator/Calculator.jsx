@@ -23,7 +23,6 @@ export default function Calculator() {
     tolls: 0,
     other: 0,
     location: "Austin",
-    car: "Sedan",
     rent: false,
   });
 
@@ -33,10 +32,10 @@ export default function Calculator() {
   console.log("minutesWorked " + inputValues.minutesWorked);
 
   return (
-    <div>
+    <div className="">
       <h1 className="text-5xl bg-indigo-400 p-3 rounded-2xl">Calculator</h1>
       <h2 className="text-3xl my-2">Input fields</h2>
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
         <DollarInputEarnings 
           name="Uber Earnings" 
           value={inputValues.uberEarnings} 
@@ -56,7 +55,7 @@ export default function Calculator() {
         <RentTogle />
       </div>
       <Divider name="Expenses"/>
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
         <DollarInputExpense name="Maintenance" />
         <DollarInputExpense name="Gas / Charging" />
         <DollarInputExpense name="Insurance" />
