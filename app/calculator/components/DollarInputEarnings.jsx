@@ -11,6 +11,7 @@ export default function DollarInputEarnings({name, value, onChange}) {
             onChange={e => onChange(e.target.value)} 
             className="pl-5 rounded-lg border-indigo-600 border" 
             type="number"
+            pattern="[0-9]*"
             defaultValue="0"
             placeholder="0" 
             name="Earnings" 

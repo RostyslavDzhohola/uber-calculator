@@ -10,6 +10,7 @@ export default function TimeWorked({hours, minutes, onChangeHours, onChangeMinut
               value={hours}
               onChange={e => onChangeHours(e.target.value)}
               className="pl-2 rounded-lg border-indigo-600 border w-20" 
+              pattern="[0-9]*"
               type="number"
               defaultValue="0"
               placeholder="0" 
@@ -24,6 +25,7 @@ export default function TimeWorked({hours, minutes, onChangeHours, onChangeMinut
               value={minutes}
               onChange={e => onChangeMinutes(e.target.value)}
               className="pl-2 rounded-lg border-indigo-600 border w-20" 
+              pattern="[0-9]*"
               type="number"
               defaultValue="0" 
               placeholder="0" 
