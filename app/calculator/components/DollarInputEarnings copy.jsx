@@ -1,4 +1,4 @@
-export default function DollarInput({name}) {
+export default function DollarInputEarnings({name}) {
   return (
     <div className="my-1">
       <div className="flex flex-col">
