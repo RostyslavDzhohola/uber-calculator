@@ -77,9 +77,13 @@
   }
 
   input {
-    background-color: grey;
+    background-color: rgb(212, 212, 216) !important;
     color: black;
   };
+
+  span {
+    color: black !important;
+  }
 }
 
 * {
