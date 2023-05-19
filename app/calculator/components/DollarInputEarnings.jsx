@@ -9,7 +9,7 @@ export default function DollarInputEarnings({name, value, onChange}) {
             id={name}
             value={value}
             onChange={e => onChange(e.target.value)} 
-            className="pl-5 rounded-lg border-indigo-600 border" 
+            className="pl-5 rounded-lg border-indigo-600 border w-full" 
             type="number"
             pattern="[0-9]*"
             defaultValue="0"

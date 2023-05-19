@@ -31,7 +31,7 @@ export default function Calculator() {
   console.log("hoursWorked " + inputValues.hoursWorked);
   console.log("minutesWorked " + inputValues.minutesWorked);
 
-  // TODO: URGENT: Fix night themre input fields.
+
 
   return (
     <div className="">
@@ -57,14 +57,14 @@ export default function Calculator() {
         <RentTogle />
       </div>
       <Divider name="Expenses"/>
-      <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3" >
         <DollarInputExpense name="Maintenance" />
         <DollarInputExpense name="Gas / Charging" />
         <DollarInputExpense name="Insurance" />
         <DollarInputExpense name="Tolls" />
         <DollarInputExpense name="Other" />
-        <Location />
         <Car />
+        <Location />
       </div>
       <Divider name="Result"/>
       <ResultCards />
