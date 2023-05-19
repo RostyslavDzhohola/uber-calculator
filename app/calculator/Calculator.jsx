@@ -26,10 +26,13 @@ export default function Calculator() {
     rent: false,
   });
 
-  console.log("uberEarnings " + inputValues.uberEarnings);
-  console.log("otherEarnings " +inputValues.otherEarnings);
-  console.log("hoursWorked " + inputValues.hoursWorked);
+  console.log(
+    "uberEarnings " + inputValues.uberEarnings + 
+    "\notherEarnings " + inputValues.otherEarnings +
+    "\nhoursWorked " + inputValues.hoursWorked
+  );
   console.log("minutesWorked " + inputValues.minutesWorked);
+  console.log("maintenance " + inputValues.maintenance);
 
 
 
@@ -58,8 +61,16 @@ export default function Calculator() {
       </div>
       <Divider name="Expenses"/>
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3" >
-        <DollarInputExpense name="Maintenance" />
-        <DollarInputExpense name="Gas / Charging" />
+        <DollarInputExpense 
+          name="Maintenance" 
+          value={inputValues.maintenance}
+          onChange={value => setInputValues({ ...inputValues, maintenance: value })}
+          />
+        <DollarInputExpense 
+          name="Gas / Charging" 
+          value={inputValues.gasCharging}
+          onChange={value => setInputValues({ ...inputValues, gasCharging: value })}
+          />
         <DollarInputExpense name="Insurance" />
         <DollarInputExpense name="Tolls" />
         <DollarInputExpense name="Other" />
