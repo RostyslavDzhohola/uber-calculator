@@ -31,6 +31,8 @@ export default function Calculator() {
   console.log("hoursWorked " + inputValues.hoursWorked);
   console.log("minutesWorked " + inputValues.minutesWorked);
 
+  // TODO: URGENT: Fix night themre input fields.
+
   return (
     <div className="">
       <h1 className="text-5xl bg-indigo-400 p-3 rounded-2xl">Calculator</h1>
