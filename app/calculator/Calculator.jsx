@@ -16,7 +16,7 @@ export default function Calculator() {
     otherEarnings: 0,
     hoursWorked: 0,
     minutesWorked: 0,
-    datesWorked: 0,
+    datesWorked: { start: new Date(), end: new Date() },
     maintenance: 0,
     gasCharging: 0,
     insurance: 0,
@@ -32,7 +32,8 @@ export default function Calculator() {
     "\nhoursWorked " + inputValues.hoursWorked +
     "\nminutesWorked " + inputValues.minutesWorked +
     "\nmaintenance " + inputValues.maintenance +
-    "\ngasCharging " + inputValues.gasCharging 
+    "\ngasCharging " + inputValues.gasCharging +
+    "\ndatesWorked " + JSON.stringify(inputValues.datesWorked) 
   );
 
 
@@ -58,7 +59,10 @@ export default function Calculator() {
           onChangeHours={value => setInputValues({ ...inputValues, hoursWorked: value })}
           onChangeMinutes={value => setInputValues({ ...inputValues, minutesWorked: value })}
         />
-        <DatesWorked />
+        <DatesWorked 
+          value={inputValues.datesWorked}
+          onDateChange={value => setInputValues({ ...inputValues, datesWorked: value })}
+        />
         <RentTogle />
       </div>
       <Divider name="Expenses"/>
