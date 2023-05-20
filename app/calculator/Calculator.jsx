@@ -29,10 +29,12 @@ export default function Calculator() {
   console.log(
     "uberEarnings " + inputValues.uberEarnings + 
     "\notherEarnings " + inputValues.otherEarnings +
-    "\nhoursWorked " + inputValues.hoursWorked
+    "\nhoursWorked " + inputValues.hoursWorked +
+    "\nminutesWorked " + inputValues.minutesWorked +
+    "\nmaintenance " + inputValues.maintenance +
+    "\ngasCharging " + inputValues.gasCharging 
   );
-  console.log("minutesWorked " + inputValues.minutesWorked);
-  console.log("maintenance " + inputValues.maintenance);
+
 
 
 
