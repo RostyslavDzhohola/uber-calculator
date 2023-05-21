@@ -7,9 +7,6 @@ export default function DatesWorked({value, onDateChange}) {
   const startDate = value.start;
   const endDate = value.end;
 
-  const [weekRange, setWeekRange] = useState({ start: startDate, end: endDate })
-
-
   const isMonday = (date) => {
     const day = date.getDay();
     return day === 1;
