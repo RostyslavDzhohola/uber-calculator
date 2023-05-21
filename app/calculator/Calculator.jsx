@@ -41,14 +41,16 @@ export default function Calculator() {
     const grossHourly = grossEarnings ? (grossEarnings / timeWorked) : 0;
     const expenses = inputValues.maintenance + inputValues.gasCharging + inputValues.insurance + inputValues.tolls + inputValues.other;
     const netEarnings = grossEarnings - expenses;
-    const netHourly = netEarnings ? (netEarnings / timeWorked) : 0;
+    const netHourly = (netEarnings !==0 && netEarnings !== undefined && netEarnings >= 0 && timeWorked !== 0 ) ? 
+      (netEarnings / timeWorked) : 
+      0;
     setResultValues({
       grossEarnings: grossEarnings,
       netEarnings: netEarnings,
       grossHourly: Number(grossHourly.toFixed(2)),
       netHourly: Number(netHourly.toFixed(2)),
       expenses: expenses,
-      timeWorked: timeWorked ? timeWorked : 0,
+      timeWorked: timeWorked ? Number(timeWorked.toFixed(2)) : 0,
     });
   }
 
@@ -69,14 +71,14 @@ export default function Calculator() {
   //   "\nlocation " + inputValues.location
   // );
 
-  console.log(
-    "grossEarnings " + resultValues.grossEarnings +
-    "\nnetEarnings " + resultValues.netEarnings +
-    "\ngrossHourly " + resultValues.grossHourly +
-    "\nnetHourly " + resultValues.netHourly +
-    "\nexpenses " + resultValues.expenses +
-    "\ntimeWorked " + resultValues.timeWorked
-  )
+  // console.log(
+  //   "grossEarnings " + resultValues.grossEarnings +
+  //   "\nnetEarnings " + resultValues.netEarnings +
+  //   "\ngrossHourly " + resultValues.grossHourly +
+  //   "\nnetHourly " + resultValues.netHourly +
+  //   "\nexpenses " + resultValues.expenses +
+  //   "\ntimeWorked " + resultValues.timeWorked
+  // )
 
   return (
     <div className="">

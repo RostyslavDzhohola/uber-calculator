@@ -1,12 +1,25 @@
-const stats = [
-  { name: 'Hourly Earnings', stat: '$32 per hour' },
-  { name: 'Working Time', stat: '53 hr 2 m' },
-  { name: 'Total Income', stat: '$1500' },
-  { name: 'Profit', stat: '$900' },
-  { name: 'Total Expense', stat: '$600' },
-]
 
-export default function ResultCards() {
+export default function ResultCards(props) {
+
+  const { grossEarnings, netEarnings, grossHourly, netHourly, expenses, timeWorked } = props.value;
+
+  console.log("grossEarnings " + grossEarnings +
+    "\nnetEarnings " + netEarnings +
+    "\ngrossHourly " + grossHourly +
+    "\nnetHourly " + netHourly +
+    "\nexpenses " + expenses +
+    "\ntimeWorked " + timeWorked
+  );
+
+  const stats = [
+    { name: 'Hourly Earnings', stat: '$' + grossHourly.toFixed(2) + ' per hour' },
+    { name: 'Hourly Profit', stat: '$' + netHourly.toFixed(2) + ' per hour'},
+    { name: 'Working Time', stat: timeWorked.toFixed(2) + ' hr' },
+    { name: 'Total Income', stat: '$' + grossEarnings.toFixed(2) },
+    { name: 'Profit', stat: '$' + netEarnings.toFixed(2) },
+    { name: 'Total Expense', stat: '$' + expenses.toFixed(2) },
+  ]
+
   return (
     <div>
       <h3 className="text-base font-semibold leading-6 text-gray-900 dark:text-white">Last 7 days</h3>
