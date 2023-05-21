@@ -12,8 +12,8 @@ export default function ResultCards(props) {
   );
 
   const stats = [
-    { name: 'Hourly Earnings', stat: '$' + grossHourly.toFixed(2) + ' per hour' },
     { name: 'Hourly Profit', stat: '$' + netHourly.toFixed(2) + ' per hour'},
+    { name: 'Hourly Earnings', stat: '$' + grossHourly.toFixed(2) + ' per hour' },
     { name: 'Working Time', stat: timeWorked.toFixed(2) + ' hr' },
     { name: 'Total Income', stat: '$' + grossEarnings.toFixed(2) },
     { name: 'Profit', stat: '$' + netEarnings.toFixed(2) },
