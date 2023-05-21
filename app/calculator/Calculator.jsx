@@ -8,7 +8,7 @@ import Location from "./components/Location"
 import Car from "./components/Car"
 import ResultCards from "./components/ResultCards"
 import DollarInputExpense from "./components/DollarInputExpense"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Calculator() {
   const [inputValues, setInputValues] = useState({
@@ -26,23 +26,57 @@ export default function Calculator() {
     rent: false,
   });
 
+  const [resultValues, setResultValues] = useState({
+    grossEarnings: 0, // how to make default value to be 0? 
+    netEarnings: 0,
+    grossHourly: 0,
+    netHourly: 0,
+    expenses: 0,
+    timeWorked: 0,
+  });
+  
+  const calculate = () => { 
+    const grossEarnings = inputValues.uberEarnings + inputValues.otherEarnings;
+    const timeWorked = Number(inputValues.hoursWorked) + Number(inputValues.minutesWorked) / 60;
+    const grossHourly = grossEarnings ? (grossEarnings / timeWorked) : 0;
+    const expenses = inputValues.maintenance + inputValues.gasCharging + inputValues.insurance + inputValues.tolls + inputValues.other;
+    const netEarnings = grossEarnings - expenses;
+    const netHourly = netEarnings ? (netEarnings / timeWorked) : 0;
+    setResultValues({
+      grossEarnings: grossEarnings,
+      netEarnings: netEarnings,
+      grossHourly: Number(grossHourly.toFixed(2)),
+      netHourly: Number(netHourly.toFixed(2)),
+      expenses: expenses,
+      timeWorked: timeWorked ? timeWorked : 0,
+    });
+  }
+
+  useEffect(() => calculate(), [inputValues]);
+
+  // console.log(
+  //   "uberEarnings " + inputValues.uberEarnings + 
+  //   "\notherEarnings " + inputValues.otherEarnings +
+  //   "\nhoursWorked " + inputValues.hoursWorked +
+  //   "\nminutesWorked " + inputValues.minutesWorked +
+  //   "\ndatesWorked " + JSON.stringify(inputValues.datesWorked) +
+  //   "\nmaintenance " + inputValues.maintenance +
+  //   "\ngasCharging " + inputValues.gasCharging +
+  //   "\ninsurance " + inputValues.insurance +
+  //   "\ntolls " + inputValues.tolls +
+  //   "\nother " + inputValues.other +
+  //   "\ncar " + inputValues.car +
+  //   "\nlocation " + inputValues.location
+  // );
+
   console.log(
-    "uberEarnings " + inputValues.uberEarnings + 
-    "\notherEarnings " + inputValues.otherEarnings +
-    "\nhoursWorked " + inputValues.hoursWorked +
-    "\nminutesWorked " + inputValues.minutesWorked +
-    "\ndatesWorked " + JSON.stringify(inputValues.datesWorked) +
-    "\nmaintenance " + inputValues.maintenance +
-    "\ngasCharging " + inputValues.gasCharging +
-    "\ninsurance " + inputValues.insurance +
-    "\ntolls " + inputValues.tolls +
-    "\nother " + inputValues.other +
-    "\ncar " + inputValues.car +
-    "\nlocation " + inputValues.location
-  );
-
-
-
+    "grossEarnings " + resultValues.grossEarnings +
+    "\nnetEarnings " + resultValues.netEarnings +
+    "\ngrossHourly " + resultValues.grossHourly +
+    "\nnetHourly " + resultValues.netHourly +
+    "\nexpenses " + resultValues.expenses +
+    "\ntimeWorked " + resultValues.timeWorked
+  )
 
   return (
     <div className="">
@@ -52,16 +86,16 @@ export default function Calculator() {
         <DollarInputEarnings 
           name="Uber Earnings" 
           value={inputValues.uberEarnings} 
-          onChange={value => setInputValues({ ...inputValues, uberEarnings: value })} />
+          onChange={value => setInputValues({ ...inputValues, uberEarnings: Number(value) })} />
         <DollarInputEarnings 
           name="Other Earnings" 
           value={inputValues.otherEarnings}
-          onChange={value => setInputValues({ ...inputValues, otherEarnings: value })} />
+          onChange={value => setInputValues({ ...inputValues, otherEarnings: Number(value) })} />
         <TimeWorked 
           hoursWorked={inputValues.hoursWorked}
           minutesWorked={inputValues.minutesWorked}
-          onChangeHours={value => setInputValues({ ...inputValues, hoursWorked: value })}
-          onChangeMinutes={value => setInputValues({ ...inputValues, minutesWorked: value })} />
+          onChangeHours={value => setInputValues({ ...inputValues, hoursWorked: Number(value) })}
+          onChangeMinutes={value => setInputValues({ ...inputValues, minutesWorked: Number(value) })} />
         <DatesWorked 
           value={inputValues.datesWorked}
           onDateChange={value => setInputValues({ ...inputValues, datesWorked: value })} />
@@ -72,23 +106,23 @@ export default function Calculator() {
         <DollarInputExpense 
           name="Maintenance" 
           value={inputValues.maintenance}
-          onChange={value => setInputValues({ ...inputValues, maintenance: value })} />
+          onChange={value => setInputValues({ ...inputValues, maintenance: Number(value) })} />
         <DollarInputExpense 
           name="Gas / Charging" 
           value={inputValues.gasCharging}
-          onChange={value => setInputValues({ ...inputValues, gasCharging: value })} />
+          onChange={value => setInputValues({ ...inputValues, gasCharging: Number(value) })} />
         <DollarInputExpense 
           name="Insurance" 
           value={inputValues.insurance}
-          onChange={value => setInputValues({ ...inputValues, insurance: value})} />
+          onChange={value => setInputValues({ ...inputValues, insurance: Number(value)})} />
         <DollarInputExpense 
           name="Tolls"
           value={inputValues.tolls}
-          onChange={value => setInputValues({ ...inputValues, tolls: value })}/>
+          onChange={value => setInputValues({ ...inputValues, tolls: Number(value) })}/>
         <DollarInputExpense 
           name="Other"
           value={inputValues.other}
-          onChange={value => setInputValues({ ...inputValues, other: value })} />
+          onChange={value => setInputValues({ ...inputValues, other: Number(value) })} />
         <Car 
           value={inputValues.car}
           onChange={value => setInputValues({ ...inputValues, car: value })} />
@@ -97,7 +131,9 @@ export default function Calculator() {
           onChange={value => setInputValues({ ...inputValues, location: value })} />
       </div>
       <Divider name="Result"/>
-      <ResultCards />
+      <ResultCards  
+        value={resultValues}
+      />
     </div>
   )
 }

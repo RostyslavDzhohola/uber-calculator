@@ -1,4 +1,8 @@
 export default function DollarInputEarnings({name, value, onChange}) {
+  const handleFocus = e => {
+    if(e.target.value === "0") e.target.value = "";
+  }
+
   return (
     <div className="my-1">
       <div className="flex flex-col">
@@ -9,6 +13,7 @@ export default function DollarInputEarnings({name, value, onChange}) {
             id={name}
             value={value}
             onChange={e => onChange(e.target.value)} 
+            onFocus={handleFocus}
             className="pl-5 rounded-lg border-indigo-600 border w-full" 
             type="number"
             pattern="[0-9]*"

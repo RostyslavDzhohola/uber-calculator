@@ -1,7 +1,7 @@
 const stats = [
-  { name: 'Hourly Earnings', stat: '$32 per hour ' },
+  { name: 'Hourly Earnings', stat: '$32 per hour' },
   { name: 'Working Time', stat: '53 hr 2 m' },
-  { name: 'Net Income', stat: '$1500' },
+  { name: 'Total Income', stat: '$1500' },
   { name: 'Profit', stat: '$900' },
   { name: 'Total Expense', stat: '$600' },
 ]

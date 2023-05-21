@@ -1,4 +1,8 @@
 export default function TimeWorked({hours, minutes, onChangeHours, onChangeMinutes}) {
+  const handleFocus = e => {
+    if(e.target.value === "0") e.target.value = "";
+  }
+
   return (
     <div className="my-1">
       <div className="flex space-x-2 ">
@@ -9,6 +13,7 @@ export default function TimeWorked({hours, minutes, onChangeHours, onChangeMinut
               id="hoursInput" 
               value={hours}
               onChange={e => onChangeHours(e.target.value)}
+              onFocus={handleFocus}
               className="pl-2 rounded-lg border-indigo-600 border w-full" 
               pattern="[0-9]*"
               type="number"
@@ -24,6 +29,7 @@ export default function TimeWorked({hours, minutes, onChangeHours, onChangeMinut
               id="minutesInput" 
               value={minutes}
               onChange={e => onChangeMinutes(e.target.value)}
+              onFocus={handleFocus}
               className="pl-2 rounded-lg border-indigo-600 border w-full" 
               pattern="[0-9]*"
               type="number"
