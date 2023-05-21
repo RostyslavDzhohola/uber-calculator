@@ -31,9 +31,14 @@ export default function Calculator() {
     "\notherEarnings " + inputValues.otherEarnings +
     "\nhoursWorked " + inputValues.hoursWorked +
     "\nminutesWorked " + inputValues.minutesWorked +
+    "\ndatesWorked " + JSON.stringify(inputValues.datesWorked) +
     "\nmaintenance " + inputValues.maintenance +
     "\ngasCharging " + inputValues.gasCharging +
-    "\ndatesWorked " + JSON.stringify(inputValues.datesWorked) 
+    "\ninsurance " + inputValues.insurance +
+    "\ntolls " + inputValues.tolls +
+    "\nother " + inputValues.other +
+    "\ncar " + inputValues.car +
+    "\nlocation " + inputValues.location
   );
 
 
@@ -51,18 +56,15 @@ export default function Calculator() {
         <DollarInputEarnings 
           name="Other Earnings" 
           value={inputValues.otherEarnings}
-          onChange={value => setInputValues({ ...inputValues, otherEarnings: value })}
-          />
+          onChange={value => setInputValues({ ...inputValues, otherEarnings: value })} />
         <TimeWorked 
           hoursWorked={inputValues.hoursWorked}
           minutesWorked={inputValues.minutesWorked}
           onChangeHours={value => setInputValues({ ...inputValues, hoursWorked: value })}
-          onChangeMinutes={value => setInputValues({ ...inputValues, minutesWorked: value })}
-        />
+          onChangeMinutes={value => setInputValues({ ...inputValues, minutesWorked: value })} />
         <DatesWorked 
           value={inputValues.datesWorked}
-          onDateChange={value => setInputValues({ ...inputValues, datesWorked: value })}
-        />
+          onDateChange={value => setInputValues({ ...inputValues, datesWorked: value })} />
         <RentTogle />
       </div>
       <Divider name="Expenses"/>
@@ -70,18 +72,29 @@ export default function Calculator() {
         <DollarInputExpense 
           name="Maintenance" 
           value={inputValues.maintenance}
-          onChange={value => setInputValues({ ...inputValues, maintenance: value })}
-          />
+          onChange={value => setInputValues({ ...inputValues, maintenance: value })} />
         <DollarInputExpense 
           name="Gas / Charging" 
           value={inputValues.gasCharging}
-          onChange={value => setInputValues({ ...inputValues, gasCharging: value })}
-          />
-        <DollarInputExpense name="Insurance" />
-        <DollarInputExpense name="Tolls" />
-        <DollarInputExpense name="Other" />
-        <Car />
-        <Location />
+          onChange={value => setInputValues({ ...inputValues, gasCharging: value })} />
+        <DollarInputExpense 
+          name="Insurance" 
+          value={inputValues.insurance}
+          onChange={value => setInputValues({ ...inputValues, insurance: value})} />
+        <DollarInputExpense 
+          name="Tolls"
+          value={inputValues.tolls}
+          onChange={value => setInputValues({ ...inputValues, tolls: value })}/>
+        <DollarInputExpense 
+          name="Other"
+          value={inputValues.other}
+          onChange={value => setInputValues({ ...inputValues, other: value })} />
+        <Car 
+          value={inputValues.car}
+          onChange={value => setInputValues({ ...inputValues, car: value })} />
+        <Location 
+          value={inputValues.location}
+          onChange={value => setInputValues({ ...inputValues, location: value })} />
       </div>
       <Divider name="Result"/>
       <ResultCards />
