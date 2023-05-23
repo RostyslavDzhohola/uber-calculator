@@ -18,6 +18,7 @@ export default function Calculator() {
     minutesWorked: 0,
     datesWorked: { start: new Date(), end: new Date() },
     maintenance: 0,
+    rental: 0,  
     gasCharging: 0,
     insurance: 0,
     tolls: 0,
@@ -39,7 +40,7 @@ export default function Calculator() {
     const grossEarnings = inputValues.uberEarnings + inputValues.otherEarnings;
     const timeWorked = Number(inputValues.hoursWorked) + Number(inputValues.minutesWorked) / 60;
     const grossHourly = grossEarnings ? (grossEarnings / timeWorked) : 0;
-    const expenses = inputValues.maintenance + inputValues.gasCharging + inputValues.insurance + inputValues.tolls + inputValues.other;
+    const expenses = inputValues.maintenance + inputValues.gasCharging + inputValues.insurance + inputValues.tolls + inputValues.other + inputValues.rental;
     const netEarnings = grossEarnings - expenses;
     const netHourly = (netEarnings !==0 && netEarnings !== undefined && netEarnings >= 0 && timeWorked !== 0 ) ? 
       (netEarnings / timeWorked) : 
@@ -80,6 +81,7 @@ export default function Calculator() {
   //   "\ntimeWorked " + resultValues.timeWorked
   // )
 
+
   return (
     <div className="">
       <h1 className="text-5xl bg-indigo-400 p-3 rounded-2xl">Calculator</h1>
@@ -101,22 +103,35 @@ export default function Calculator() {
         <DatesWorked 
           value={inputValues.datesWorked}
           onDateChange={value => setInputValues({ ...inputValues, datesWorked: value })} />
-        <RentTogle />
+        <RentTogle 
+          value={inputValues.rent}
+          onTogleChange={value => setInputValues({ ...inputValues, rent: value })}
+        />
       </div>
       <Divider name="Expenses"/>
-      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3" >
-        <DollarInputExpense 
-          name="Maintenance" 
-          value={inputValues.maintenance}
-          onChange={value => setInputValues({ ...inputValues, maintenance: Number(value) })} />
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3" >  
+      {!inputValues.rent ?
+        (<>
+          <DollarInputExpense 
+            name="Maintenance" 
+            value={inputValues.maintenance}
+            onChange={value => setInputValues({ ...inputValues, maintenance: Number(value) })} />
+          <DollarInputExpense
+            name="Insurance"
+            value={inputValues.insurance}
+            onChange={value => setInputValues({ ...inputValues, insurance: Number(value)})} />
+        </>
+        ): 
+         <DollarInputExpense 
+          name="Rental"
+          value={inputValues.rental}
+          onChange={value => setInputValues({ ...inputValues, rental: Number(value) })}
+         />
+      }
         <DollarInputExpense 
           name="Gas / Charging" 
           value={inputValues.gasCharging}
           onChange={value => setInputValues({ ...inputValues, gasCharging: Number(value) })} />
-        <DollarInputExpense 
-          name="Insurance" 
-          value={inputValues.insurance}
-          onChange={value => setInputValues({ ...inputValues, insurance: Number(value)})} />
         <DollarInputExpense 
           name="Tolls"
           value={inputValues.tolls}

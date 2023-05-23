@@ -1,21 +1,31 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Switch } from '@headlessui/react';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function RentTogle() {
-  const [enabled, setEnabled] = useState(false)
+export default function RentTogle({value, onTogleChange}) {
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    setEnabled(value);
+  }, [value]);
+
+  const handleTogleChange = () => {
+    setEnabled(!enabled);
+    onTogleChange(!value);
+  }
+
 
   return (
     <div className='flex flex-col justify-center my-2'>
       <label htmlFor="rentTogle" className="self-center ml-1 mr-2 font-bold text-lg ">Renting</label>
       <Switch
         checked={enabled}
-        onChange={setEnabled}
+        onChange={handleTogleChange}
         className="self-center group relative inline-flex h-7 w-10 flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
       >
         <span className="sr-only">Use setting</span>

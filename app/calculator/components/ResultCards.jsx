@@ -3,13 +3,13 @@ export default function ResultCards(props) {
 
   const { grossEarnings, netEarnings, grossHourly, netHourly, expenses, timeWorked } = props.value;
 
-  console.log("grossEarnings " + grossEarnings +
-    "\nnetEarnings " + netEarnings +
-    "\ngrossHourly " + grossHourly +
-    "\nnetHourly " + netHourly +
-    "\nexpenses " + expenses +
-    "\ntimeWorked " + timeWorked
-  );
+  // console.log("grossEarnings " + grossEarnings +
+  //   "\nnetEarnings " + netEarnings +
+  //   "\ngrossHourly " + grossHourly +
+  //   "\nnetHourly " + netHourly +
+  //   "\nexpenses " + expenses +
+  //   "\ntimeWorked " + timeWorked
+  // );
 
   const stats = [
     { name: 'Hourly Profit', stat: '$' + netHourly.toFixed(2) + ' per hour'},
