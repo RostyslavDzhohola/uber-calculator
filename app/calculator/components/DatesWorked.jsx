@@ -1,7 +1,11 @@
 'use client'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
+import { registerLocale, setDefaultLocale } from "react-datepicker";
+import { enGB } from "date-fns/locale";
+
+registerLocale('enGB', enGB);
+setDefaultLocale('enGB');
 
 export default function DatesWorked({value, onDateChange}) {
   const startDate = value.start;
@@ -28,7 +32,7 @@ export default function DatesWorked({value, onDateChange}) {
             selected={startDate}
             filterDate={isMonday}
             // TODO: find out why weekStartsOn is not working
-            weekStartsOn={1}
+            locale="enGB"
             onChange={date => onDateChange({ start: date, end: value.end })}
             />
         </div>
@@ -39,7 +43,7 @@ export default function DatesWorked({value, onDateChange}) {
             className="pl-2 rounded-lg border-indigo-600 border" 
             selected={endDate}
             filterDate={isSunday}
-            weekStartsOn={1}
+            locale="enGB"
             onChange={date => onDateChange({ start: value.start, end: date })}
             />
         </div>
