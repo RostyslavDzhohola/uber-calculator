@@ -22,6 +22,8 @@ export async function POST(req) {
       email_address: email,
       status: 'subscribed',
     };
+    
+    // TODO: When the user unsubscribes, or gets permanently deleted, his email must be sent to Mailchimp API with resubscribe status
 
     const response = await fetch(
       `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`,

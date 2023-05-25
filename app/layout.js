@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={styles.main}>
-        <nav className=' p-6 bg-indigo-500 w-full rounded-md'>
+        <nav className=' p-6 bg-indigo-500 w-full rounded-md text-white'>
           <Link 
             href="/" 
             className='mx-2 text-2xl hover:scale-110 inline-block active:bg-red-700'>
