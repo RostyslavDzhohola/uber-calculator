@@ -12,8 +12,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={styles.main}>
-        <nav className='m-5'>
-          <Link href="/" className='mx-2 text-2xl hover:scale-110 inline-block'>Home</Link>
+        <nav className=' p-6 bg-indigo-500 w-full rounded-md'>
+          <Link 
+            href="/" 
+            className='mx-2 text-2xl hover:scale-110 inline-block active:bg-red-700'>
+            Home
+          </Link>
           <Link href="/calculator" className='mx-2 text-2xl hover:scale-110 inline-block'>Calculator</Link>
         </nav>
         <div>

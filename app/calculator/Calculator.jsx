@@ -84,7 +84,7 @@ export default function Calculator() {
 
   return (
     <div className="">
-      <h1 className="text-5xl bg-indigo-400 p-3 rounded-2xl">Calculator</h1>
+      {/* <h1 className="text-5xl bg-indigo-400 p-3 rounded-2xl">Calculator</h1> */}
       <h2 className="text-3xl my-2">Input fields</h2>
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
         <DollarInputEarnings 
