@@ -24,6 +24,16 @@ export default function RootLayout({ children }) {
             prefetch={true} >
             Calculator
           </Link>
+          <Link 
+            href="/dashboard"
+            className='mx-2 text-2xl hover:scale-110 inline-block'>
+            Dashboard
+          </Link>
+          <Link 
+            href="/stats"
+            className='mx-2 text-2xl hover:scale-110 inline-block'>
+            Stats
+          </Link>
         </nav>
         <div>
           {children}
