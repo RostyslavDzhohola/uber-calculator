@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.7.14",
     "@mailerlite/mailerlite-nodejs": "^1.0.1",
     "@vercel/analytics": "^1.0.1",
+    "@vercel/postgres": "^0.3.0",
     "axios": "^1.4.0",
     "date-fns": "^2.30.0",
     "eslint": "8.35.0",
