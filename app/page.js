@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import styles from "./page.module.css";
-import SignUp from "@/SignUp";
+import SignUp from "./SignUp";
 
 const inter = Inter({ subsets: ["latin"] });
 // TODO: Add a new page and place it in the correct folder
