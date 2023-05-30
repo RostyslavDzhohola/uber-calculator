@@ -34,6 +34,11 @@ export default function RootLayout({ children }) {
             className='mx-2 text-2xl hover:scale-110 inline-block'>
             Stats
           </Link>
+          <Link
+            href="/postgress"
+            className='mx-2 text-2xl hover:scale-110 inline-block'>
+            Postgress
+          </Link>
         </nav>
         <div>
           {children}
