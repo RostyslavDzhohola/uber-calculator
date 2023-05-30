@@ -4,7 +4,8 @@ import Cart from '../postgress/Cart'
 export default function Page() {
   return (
     <div>
-      <Cart />
+      {/* <Cart /> */}
+      database will be here
     </div>
   )
 }
