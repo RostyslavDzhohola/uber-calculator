@@ -196,6 +196,7 @@ export default function Calculator() {
       </div>
       <Divider name="Result" />
       <ResultCards value={resultValues} />
+      <button className="bg-green-500 hover:scale-110 p-1 mt-2" >Submit</button>
     </div>
   );
 }
