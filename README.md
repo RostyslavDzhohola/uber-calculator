@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 # Uber calculator
 
-Uber Calculator README
+Uber Calculator
 A common hurdle when starting out as an Uber driver is the uncertainty surrounding the financial aspects of the job. While enticing claims suggest earnings of around $31 per hour, this only tells half the story. In my view, Uber could potentially benefit more by offering transparency and improved tools for drivers to accurately calculate their actual earnings, considering factors like the varying maintenance costs of different car models. This could be achieved by gathering data about cars and introducing a feature where drivers can input their personal car expenses to determine their exact hourly rate. This would give new drivers a clearer picture of what they're signing up for.
 
 Here's a bit of my personal experience. I drove a 2012 Ford Focus, clocking in 5000 miles each month. After several months, maintenance issues started popping up and the labor costs in Texas were higher than what I was used to in Illinois. I crunched the numbers and discovered that I could have saved $2000 if I had opted to rent a car from the beginning, and I would still have had my old car.
