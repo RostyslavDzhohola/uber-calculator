@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
         <nav className=' p-6 bg-indigo-500 w-full rounded-md text-white'>
           <Link 
             href="/" 
-            className='mx-2 text-2xl hover:scale-110 inline-block active:bg-red-700'>
+            className='mx-2 text-2xl hover:scale-110 inline-block'>
             Home
           </Link>
           <Link 
